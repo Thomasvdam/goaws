@@ -72,7 +72,7 @@ docker run \
  --name=goaws \
  -v /path/on/host/goaws-config.yaml:/path/in/container/goaws-config.yaml \
  -p=4100:4100 \
- admiralpiett/goaws:v0.4.4-arm64 -config /path/in/container/goaws-config.yaml
+ llamateur/goaws:v0.4.4-arm64 -config /path/in/container/goaws-config.yaml
 ```
 
 ## Debug logging can be turned on via a command line flag (e.g.: -debug)
@@ -96,13 +96,13 @@ docker run \
 ## Run (Docker Version)
 
     Version >= v0.3.2
-        docker pull admiralpiett/goaws
+        docker pull llamateur/goaws
 
     Version <= v0.3.1
         docker pull pafortin/goaws
 
     run
-        docker run -d --name goaws -p 4100:4100 admiralpiett/goaws
+        docker run -d --name goaws -p 4100:4100 llamateur/goaws
 
 
 
