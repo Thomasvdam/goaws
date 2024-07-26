@@ -925,7 +925,7 @@ func TestDeadLetterQueue(t *testing.T) {
 	form.Add("Attribute.1.Name", "VisibilityTimeout")
 	form.Add("Attribute.1.Value", "1")
 	form.Add("Attribute.2.Name", "RedrivePolicy")
-	form.Add("Attribute.2.Value", `{"maxReceiveCount": 1, "deadLetterTargetArn":"arn:aws:sqs::000000000000:failed-messages"}`)
+	form.Add("Attribute.2.Value", `{"maxReceiveCount": 2, "deadLetterTargetArn":"arn:aws:sqs::000000000000:failed-messages"}`)
 	form.Add("Version", "2012-11-05")
 	req.PostForm = form
 
