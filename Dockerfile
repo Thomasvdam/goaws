@@ -1,7 +1,7 @@
 # build image
 FROM golang:alpine as build
 
-WORKDIR /go/src/github.com/Admiral-Piett/goaws
+WORKDIR /go/src/github.com/thomasvdam/goaws
 
 COPY ./app/ ./app/
 COPY ./go.mod .
@@ -16,7 +16,7 @@ FROM alpine
 
 WORKDIR /app
 
-COPY --from=build /go/src/github.com/Admiral-Piett/goaws/goaws ./goaws
+COPY --from=build /go/src/github.com/thomasvdam/goaws/goaws ./goaws
 
 COPY app/conf/goaws.yaml ./conf/
 

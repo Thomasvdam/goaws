@@ -8,6 +8,9 @@ on:
         description: "New Build Tag (eg. 0.0.1)"
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   tag:
     runs-on: ubuntu-22.04
@@ -23,7 +26,7 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.67.0
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           CUSTOM_TAG: "v${{ inputs.tag }}"
 
@@ -61,4 +64,4 @@ jobs:
           version: v1.19.2
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
