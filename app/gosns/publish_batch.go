@@ -27,6 +27,11 @@ func PublishBatchV1(req *http.Request) (int, interfaces.AbstractResponseBody) {
 	if messageCount == 0 {
 		return utils.CreateErrorResponseV1("EmptyBatchRequest", false)
 	}
+	// Workaround
+	if requestBody.PublishBatchRequestEntries.Member[0] == nil {
+		requestBody.PublishBatchRequestEntries.Member = requestBody.PublishBatchRequestEntries.Member[1:]
+		messageCount = len(requestBody.PublishBatchRequestEntries.Member)
+	}
 
 	// The marshaller will populate a nil entry for its 0 index, so pop it here since the requests
 	//will start with index 1.
